@@ -25,3 +25,17 @@ print(df.groupby("product_id").agg(
     min_quantity=("quantity", "min"),
     max_quantity=("quantity", "max")
 ))
+
+print("\ntransform() — Returns series same length as original")
+print("--- transform(): quantity / total_quantity_per_product_id ---")
+df["qty_percent"] = df["quantity"] / df.groupby("product_id")["quantity"].transform("sum")
+print(df)
+
+print("\napply() — Custom function on each group")
+def range_of_price(group):
+    return group["price"].max() - group["price"].min()
+print(df.groupby("product_id").apply(range_of_price))
+
+print("\nFiltering groups using filter()")
+print("Keep only those product_ids whose total quantity > 10")
+print(df.groupby("product_id").filter(lambda g:g["quantity"].sum()>10))
