@@ -94,11 +94,11 @@ print(df[["date", "price"]].head())
 # 13. Selecting rows using .loc (label-based)
 # df.loc[rowStartIndx : rowEndIndx, ['RespectiveColName1', 'RespectiveColName2', 'etc']]
 # ----------------------------------------------------
-print("\n--- df.loc[rowStartIndx : rowEndIndx, ['RespectiveColName1', 'RespectiveColName2', 'etc']] ---")
+print("\n--- df.loc[rowStartIndx : rowEndIndx, ['RespectiveColName1', 'RespectiveColName2', 'etc']] and labelBase ---")
 print(df.loc[0:2, ["date", "product_id"]])
 
 # ----------------------------------------------------
 # 14. Selecting rows using .iloc (position-based)
 # ----------------------------------------------------
-print("\n--- df.loc[rowStartIndx : rowEndIndx, colStartIndx : colEndIndx] ---")
+print("\n--- df.loc[rowStartIndx : rowEndIndx, colStartIndx : colEndIndx] and integer positionBase ---")
 print(df.iloc[0:2, 0:10])
