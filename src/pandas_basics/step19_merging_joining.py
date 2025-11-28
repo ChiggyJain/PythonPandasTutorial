@@ -52,6 +52,26 @@ print(index_merge)
 print("\nCONCAT ROW-WISE (stack rows)")
 print(pd.concat([df_sales.head(5), df_sales.tail(5)], axis=0))
 
+print("\nCONCAT COLUMN-WISE (add columns side by side)")
+print(pd.concat([df_sales["quantity"], df_sales["price"]], axis=1))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
