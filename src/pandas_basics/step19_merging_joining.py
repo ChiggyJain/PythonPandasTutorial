@@ -38,3 +38,21 @@ print(right_join)
 print("\nFULL OUTER JOIN (Most used)")
 full_outer_join = pd.merge(df_sales, df_products, on="product_id", how="outer")
 print(full_outer_join)
+
+print("\nINNER/FULL JOIN on multiple-columns (Most used). Only matching rows based on given columns")
+inner_join = pd.merge(df_sales, df_products, on=["product_id", "date"], how="inner")
+print(inner_join)
+
+print("\LEFT JOIN ON INDEX")
+df_sales_indx = df_sales.set_index("product_id")
+df_product_indx = df_products.set_index("product_id")
+index_merge = df_sales_indx.join(df_product_indx, lsuffix="_left", rsuffix="_right")
+print(index_merge)
+
+print("\nCONCAT ROW-WISE (stack rows)")
+print(pd.concat([df_sales.head(5), df_sales.tail(5)], axis=0))
+
+
+
+
+
